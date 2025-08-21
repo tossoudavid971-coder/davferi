@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Multiverse</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle at top left, #0b0c3f, #1a1a4d, #2e1a62);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* étoiles animées */
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+        }
+        
+        .login-box {
+            background: rgba(10, 10, 30, 0.9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(142, 68, 173, 0.6);
+            text-align: center;
+            width: 350px;
+            z-index: 1;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-shadow: 0 0 10px #8e44ad, 0 0 20px #3498db;
+        }
+        
+        input {
+            padding: 12px;
+            margin: 12px 0;
+            width: 90%;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #8e44ad, #3498db, #e74c3c);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(142, 68, 173, 0.6);
+        }
+        
+        button:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 0 30px rgba(52, 152, 219, 0.8), 0 0 40px rgba(231, 76, 60, 0.8);
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        p {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h1>Connexion au Multiverse</h1>
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" required><br>
+            <input type="password" name="password" placeholder="Mot de passe" required><br>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p>Pas encore inscrit ? <a href="/register">Créer un compte</a></p>
+        <p><a href="/offers">Voir les offres</a></p>
+    </div>
+
+    <!-- étoiles -->
+    <script>
+        for (let i = 0; i < 150; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 2 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDuration = 1 + Math.random() * 3 + 's';
+            document.body.appendChild(star);
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'welcome.html';
+        });
+    </script>
+</body>
+
+</html>
